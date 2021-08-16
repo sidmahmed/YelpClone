@@ -1,0 +1,44 @@
+<% layout ('../layouts/boilterplate') %>
+
+
+<div class="container">
+    <header class="p-5 mb-4 bg-light rounded-5">
+        <div class=container>
+            <h1>List of Campgrounds</h1>
+            <p>Handpicked campgrounds from all over the word</p>
+            <p><a class="btn btn-primary btn-large"href="/campgrounds/new">Add New Campground</a></p>
+        </div>
+    </header>
+    
+    <div class="row">
+        
+        <div class="col-lg-12 text-center">
+            <h3>Most Popular Campgrounds</h3>
+        </div>
+        
+    </div>
+    
+    
+    <div class="row d-flex flex-wrap">
+    
+        <% campgrounds.forEach(function(camp){ %>
+            
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 my-2">
+                <div class="card text-center">
+                      <img src="<%= camp.image%>" class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <h5 class="card-title"><%= camp.name %></h5>
+						  <a href="/campgrounds/<%=camp._id %>" class="btn btn-primary">More Info</a>
+                      </div>
+                </div>
+            </div>
+
+            
+            
+        <% }) %>
+    
+    </div>
+
+
+</div>
+

@@ -1,0 +1,48 @@
+<% layout ('../layouts/boilterplate') %>
+
+	<div class="container">
+		<h4 class="text-center">Add a new comment to <%=campground.name%>
+		</h4>
+
+		<div class="d-flex justify-content-center my-5">
+			<form action="/campgrounds/<%=campground._id%>/comments" method="POST" class="w-25 validated-form" novalidate>
+				<div class="row mb-3">
+					<div class="col px-0">
+						<label for="inputAuthor" class="form-label">Author</label>
+						<input type="text" class="form-control" id="inputAuthor" name="comment[author]" required />
+						<div class="valid-feedback">
+							Looks good!
+						  </div>
+						  <div class="invalid-feedback">
+							Author is required
+						  </div>
+					</div>
+				</div>
+				<div class="row mb-3">
+					<div class="col px-0">
+						<label for="inputText" class="form-label">Comment text</label>
+						<textarea class="form-control" id="inputText" name="comment[text]" required /></textarea>
+						<div class="valid-feedback">
+							Looks good!
+						  </div>
+						  <div class="invalid-feedback">
+							Text is required
+						  </div>
+					</div>
+				</div>
+
+				<div class="row mb-3">
+					<div class="col px-0">
+						<label for="rating" class="form-label">Rating</label>
+						<input type="range" class="form-range" id="rating" name="comment[rating]" />
+					</div>
+				</div>
+
+				<div class="row mb-3">
+					<button type="submit" class="btn btn-primary">Submit</button>
+				</div>
+			</form>
+		</div>
+
+		<a href="/campgrounds">Go back to campgrounds page</a>
+	</div>

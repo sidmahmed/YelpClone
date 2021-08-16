@@ -1,0 +1,80 @@
+<% layout ('../layouts/boilterplate') %>
+
+  <div class="container">
+
+    <h4 class="text-center">Edit campground - <%= campground.name %> </h4>
+
+    <div class="d-flex justify-content-center my-5">
+
+      <form action="/campgrounds/<%= campground._id %>?_method=PUT" method="POST" class="w-25 validated-form" novalidate>
+        <div class="row mb-3">
+          <div class="col px-0">
+            <label for="inputName" class="form-label">Campsite Name</label>
+            <input required value="<%= campground.name %>"type="text" class="form-control" id="inputName" name="campground[name]">
+            <div class="valid-feedback">
+              Looks good!
+            </div>
+            <div class="invalid-feedback">
+              Name is required
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col px-0">
+            <label for="inputImage" class="form-label">Image URL</label>
+            <input required type="text" value="<%= campground.image %>" class="form-control" id="inputImage" name="campground[image]">
+            <div class="valid-feedback">
+              Looks good!
+            </div>
+            <div class="invalid-feedback">
+              Image is required
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col px-0">
+            <label for="price" class="form-label">Price</label>
+            <input required type="text" value="<%= campground.price %>" class="form-control" id="price" name="campground[price]">
+            <div class="valid-feedback">
+              Looks good!
+            </div>
+            <div class="invalid-feedback">
+              Price is required
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col px-0">
+            <label for="location" class="form-label">Location</label>
+            <input required type="text" value="<%= campground.location %>" class="form-control" id="location" name="campground[location]">
+            <div class="valid-feedback">
+              Looks good!
+            </div>
+            <div class="invalid-feedback">
+              Location is required
+            </div>
+          </div>
+        </div>
+        
+        <div class="row mb-3">
+          <div class="col px-0">
+            <label for="inputDescription" class="form-label">Description</label>
+            <textarea required type="text" class="form-control" id="inputDescription" name="campground[description]"><%= campground.description %></textarea>
+            <div class="valid-feedback">
+              Looks good!
+            </div>
+            <div class="invalid-feedback">
+              Description is required
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+    </div>
+
+    <a href="/campgrounds">Go back to campgrounds page</a>
+
+  </div>

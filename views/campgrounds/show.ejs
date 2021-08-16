@@ -1,0 +1,70 @@
+<% layout ('../layouts/boilterplate') %>
+
+<%= success %> 
+
+<div class="row d-flex justify-content-center">
+  <div class="col-md-6">
+    <div class="card fluid">
+      <img src="<%=campground.image%>" class="card-img-top" />
+      <div class="card-body">
+        <div class="row">
+          <div class="col-6 text-start">
+            <h5 class="card-title"><%=campground.name %></h5>
+          </div>
+          <div class="col-6">
+            <h5 class="card-title text-end">
+              Price: $<%= campground.price %>/night
+            </h5>
+          </div>
+        </div>
+        <p class="card-text d-block"><%=campground.location %></p>
+        <p class="card-text d-block"><%=campground.description %></p>
+        <a class="btn btn-dark" href="/campgrounds/<%=campground._id%>/edit"
+          >Edit</a
+        >
+        <form
+          class="d-inline"
+          action="/campgrounds/<%=campground._id%>?_method=DELETE"
+          method="post"
+        >
+          <button class="btn btn-danger" type="submit">Delete</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="row">
+      <div class="col-6 text-start">
+        <h5 class="card-title">Comments</h5>
+      </div>
+      <div class="col-6 text-end">
+        <a
+          class="btn btn-dark"
+          href="/campgrounds/<%=campground._id%>/comments/new"
+        >
+          Add New Comment
+        </a>
+      </div>
+    </div>
+
+    <div class="list-group comments my-4">
+      <% for(let comment of campground.comments) { %>
+      <div href="#" class="list-group-item" aria-current="true">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1"><%= comment.author %></h5>
+          <small>3 days ago</small>
+        </div>
+        <p class="mb-1">Rating: <%= comment.rating %>/100</p>
+        <p class="mb-1"><%= comment.text %></p>
+        <form
+          action="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>?_method=DELETE"
+          method="POST"
+          class="float-end"
+        >
+          <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+      </div>
+      <% }; %>
+    </div>
+  </div>
+</div>

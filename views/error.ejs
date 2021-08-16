@@ -1,0 +1,14 @@
+<% layout ('../layouts/boilterplate') %>
+
+    <div class="row d-flex justify-content-center">
+        <div class="col-6">
+            <div class="alert alert-danger" role="alert">
+                <h4 class="alert-heading"><%=err.statusCode%> Error</h4>
+                <p><%=err.message%></p>
+                <hr>
+                <p class="mb-0">
+                    <a class="btn btn-light" href="/campgrounds">Go to Homepage</a>
+                </p>
+            </div>
+        </div>
+    </div>
